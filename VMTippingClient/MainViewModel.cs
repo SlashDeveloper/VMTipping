@@ -1,5 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -15,13 +18,58 @@ namespace VMTippingClient
     {      
         public ICommand ReadFilesCommand { get; set; }
         public ICommand SaveCommand{ get; set; }
+        public ICommand ReadUserJsonCommand { get; set; } 
         public ObservableCollection<User> Users { get; set; }
+        public ObservableCollection<Score> Ranking { get; set; }
 
         public MainViewModel()
         {
             Users = new ObservableCollection<User>();
+            Ranking = new ObservableCollection<Score>();
             ReadFilesCommand = new RelayCommand(ReadFiles);
             SaveCommand = new RelayCommand(SaveToFile);
+            ReadUserJsonCommand = new RelayCommand(GetUsersFromJson);
+        }
+
+        private void GetUsersFromJson()
+        {
+            // Create OpenFileDialog 
+            var dlg = new Microsoft.Win32.OpenFileDialog();
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".json";
+            dlg.Filter = "Json files (.json)|*.json";
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            bool? result = dlg.ShowDialog();
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+                var users = JsonConvert.DeserializeObject<IList<User>>(File.ReadAllText(filename));
+                foreach (var user in users)
+                {
+                    Users.Add(user);
+                }
+                UpdateRanking();
+            }
+
+
+        }
+
+        
+
+        private void UpdateRanking()
+        {
+            Ranking.Clear();
+            var games = new ResultService().GetGamesThatArePlayed();
+            var ranking = new ScoreService().GetRanking(Users, games);
+            foreach (var score in ranking)
+            {
+                Ranking.Add(score);
+            }
         }
 
         private async void ReadFiles()

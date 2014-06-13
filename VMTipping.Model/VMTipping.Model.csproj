@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />
+    <Compile Include="ResultService.cs" />
+    <Compile Include="Score.cs" />
+    <Compile Include="ScoreService.cs" />
     <Compile Include="User.cs" />
     <Compile Include="MatchPrediction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

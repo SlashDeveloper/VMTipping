@@ -1,12 +1,53 @@
 ﻿<Window x:Class="VMTippingClient.UserPredictionWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="UserPredictionWindow" Height="300" Width="300">
+        xmlns:model="clr-namespace:VMTipping.Model;assembly=VMTipping.Model"
+        Title="UserPredictionWindow" Height="600" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="TeamTemplate" DataType="model:Team">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding User.Name}"></TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="4" Text="{Binding User.Name}"></TextBlock>
+
+        <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding User.MatchPredictions}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding HomeTeam.Name}" />
+                        <TextBlock Grid.Column="1" Text="{Binding AwayTeam.Name}" />
+                        <TextBlock Grid.Column="2" Text="{Binding HomeGoals}" />
+                        <TextBlock Grid.Column="3" Text="{Binding AwayGoals}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding User.RoundOf16}" ItemTemplate="{StaticResource TeamTemplate}" />
+        <ListBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding User.RoundOf8}" ItemTemplate="{StaticResource TeamTemplate}" />
+        <ListBox Grid.Row="1" Grid.Column="3" ItemsSource="{Binding User.RoundOf4}" ItemTemplate="{StaticResource TeamTemplate}" />
+        <ListBox Grid.Row="1" Grid.Column="4" ItemsSource="{Binding User.Ranking}" ItemTemplate="{StaticResource TeamTemplate}" />
     </Grid>
 </Window>
+
+    
