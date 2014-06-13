@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
@@ -127,7 +128,7 @@ namespace VMTippekonkurranse.Controllers
             using (var context = new TippeContext())
             {
                 List<SelectListItem> items = new List<SelectListItem>();
-                context.Matches.Where(m=>m.Date==null).ToList().ForEach(m=> items.Add(new SelectListItem
+                context.Matches.ToList().ForEach(m=> items.Add(new SelectListItem
                 {
                     Text = m.HomeTeam.Name + " - " + m.AwayTeam.Name,
                     Value = m.Id.ToString()
@@ -138,11 +139,22 @@ namespace VMTippekonkurranse.Controllers
         }
 
         [HttpPost]
-        public ActionResult Dates(int matches, DateTime date)
+        public ActionResult Dates(int matches, DateTime date, bool played, int? home, int? away)
         {
             using (var context = new TippeContext())
             {
-                context.Matches.First(m => m.Id == matches).Date = date;
+                var match = context.Matches.First(m => m.Id == matches);
+                match.Date = date;
+                if (home != null)
+                {
+                    match.HomeGoals = home.Value;
+                }
+                if (away != null)
+                {
+                    match.AwayGoals = away.Value;
+                }
+                match.IsPlayed = played;
+                
                 context.SaveChanges();
             }
             return RedirectToAction("Dates");
