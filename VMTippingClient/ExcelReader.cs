@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using VMTipping.Model;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -8,7 +9,7 @@ namespace VMTippingClient
 {
     public class ExcelReader
     {
-        public User GetResult(string file)
+        public async Task<User> GetResult(string file)
         {
             Excel.Application xlApp;
             User userPrediction;
@@ -30,7 +31,7 @@ namespace VMTippingClient
                 Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(file);
                 xlApp.DisplayAlerts = false;
 
-                userPrediction = new ExcelUserPredictionReader().GetUserPrectionFromWorkbook(xlWorkBook);
+                userPrediction = await new ExcelUserPredictionReader().GetUserPrectionFromWorkbook(xlWorkBook);
 
                 //Make sure Excel is visible and give the user control
                 //of Microsoft Excel's lifetime.

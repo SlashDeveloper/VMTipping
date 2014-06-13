@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.Office.Interop.Excel;
 using VMTipping.Model;
 
@@ -7,7 +8,7 @@ namespace VMTippingClient
 {
     public class ExcelUserPredictionReader
     {
-        public User GetUserPrectionFromWorkbook(Workbook workbook)
+        public async Task<User> GetUserPrectionFromWorkbook(Workbook workbook)
         {
             var predictionSheet = GetSheet(workbook, "Gruppespilltipp");
             var endgameSheets = GetSheet(workbook, "Sluttspilltipp");
