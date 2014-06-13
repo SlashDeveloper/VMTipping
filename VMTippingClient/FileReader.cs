@@ -13,7 +13,7 @@ namespace VMTippingClient
         public void ReadPredictionFiles()
         {
             // Read all files in folder and parse to resultset
-            var files = Directory.GetFiles(@"C:\Users\Brian\Google Drive\VM-tipping");
+            var files = Directory.GetFiles(@"C:\Users\R\Documents\GitHub\VMTipping\PredictionSheets");
             var users = new List<User>();
             foreach (var file in files)
             {

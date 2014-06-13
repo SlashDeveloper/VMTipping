@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMTippingClient", "VMTippingClient.csproj", "{BD1B9037-5729-4D52-8EE7-8F24D224C40B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMTipping.Model", "..\VMTipping.Model\VMTipping.Model.csproj", "{711412EF-7268-4D30-9F64-D424BA8AB4C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMTippekonkurranse", "..\..\..\Visual Studio 2013\Projects\VMTippekonkurranse\VMTippekonkurranse\VMTippekonkurranse.csproj", "{091BEF9C-1CE0-4568-9BBB-D452E476B3C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{711412EF-7268-4D30-9F64-D424BA8AB4C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{711412EF-7268-4D30-9F64-D424BA8AB4C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{711412EF-7268-4D30-9F64-D424BA8AB4C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{091BEF9C-1CE0-4568-9BBB-D452E476B3C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{091BEF9C-1CE0-4568-9BBB-D452E476B3C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{091BEF9C-1CE0-4568-9BBB-D452E476B3C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{091BEF9C-1CE0-4568-9BBB-D452E476B3C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

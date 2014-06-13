@@ -6,6 +6,7 @@ namespace VMTipping.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string ImageURL { get; set; }
         public IList<MatchPrediction> MatchPredictions { get; set; }
         public IList<Team> RoundOf16 { get; set; }
         public IList<Team> RoundOf8 { get; set; }

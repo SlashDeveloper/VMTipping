@@ -3,3 +3,8 @@ C:\Users\Brian\Documents\GitHub\VMTipping\VMTipping.Model\bin\Debug\VMTipping.Mo
 C:\Users\Brian\Documents\GitHub\VMTipping\VMTipping.Model\obj\Debug\VMTipping.Model.csprojResolveAssemblyReference.cache
 C:\Users\Brian\Documents\GitHub\VMTipping\VMTipping.Model\obj\Debug\VMTipping.Model.dll
 C:\Users\Brian\Documents\GitHub\VMTipping\VMTipping.Model\obj\Debug\VMTipping.Model.pdb
+C:\Users\R\Documents\GitHub\VMTipping\VMTipping.Model\bin\Debug\VMTipping.Model.dll
+C:\Users\R\Documents\GitHub\VMTipping\VMTipping.Model\bin\Debug\VMTipping.Model.pdb
+C:\Users\R\Documents\GitHub\VMTipping\VMTipping.Model\obj\Debug\VMTipping.Model.csprojResolveAssemblyReference.cache
+C:\Users\R\Documents\GitHub\VMTipping\VMTipping.Model\obj\Debug\VMTipping.Model.dll
+C:\Users\R\Documents\GitHub\VMTipping\VMTipping.Model\obj\Debug\VMTipping.Model.pdb
