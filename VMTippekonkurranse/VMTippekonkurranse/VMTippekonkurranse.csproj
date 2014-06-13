@@ -165,22 +165,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201406121624046_InitialCreate.cs" />
-    <Compile Include="Migrations\201406121624046_InitialCreate.Designer.cs">
-      <DependentUpon>201406121624046_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201406131627207_endringtillag3.cs" />
+    <Compile Include="Migrations\201406131627207_endringtillag3.Designer.cs">
+      <DependentUpon>201406131627207_endringtillag3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201406121636109_InitialCreate1.cs" />
-    <Compile Include="Migrations\201406121636109_InitialCreate1.Designer.cs">
-      <DependentUpon>201406121636109_InitialCreate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201406121644451_LaTilBrukereOgResultat.cs" />
-    <Compile Include="Migrations\201406121644451_LaTilBrukereOgResultat.Designer.cs">
-      <DependentUpon>201406121644451_LaTilBrukereOgResultat.cs</DependentUpon>
+    <Compile Include="Migrations\201406131631401_latildatopaagme.cs" />
+    <Compile Include="Migrations\201406131631401_latildatopaagme.Designer.cs">
+      <DependentUpon>201406131631401_latildatopaagme.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Lag.cs" />
     <Compile Include="Models\TippeContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -188,10 +183,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datepicker.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\vm2014tipping.pubxml" />
@@ -207,7 +204,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -238,6 +237,7 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Dates.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -250,21 +250,18 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201406121624046_InitialCreate.resx">
-      <DependentUpon>201406121624046_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406121636109_InitialCreate1.resx">
-      <DependentUpon>201406121636109_InitialCreate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406121644451_LaTilBrukereOgResultat.resx">
-      <DependentUpon>201406121644451_LaTilBrukereOgResultat.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\..\GitHub\VMTipping\VMTipping.Model\VMTipping.Model.csproj">
       <Project>{711412EF-7268-4D30-9F64-D424BA8AB4C0}</Project>
       <Name>VMTipping.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201406131627207_endringtillag3.resx">
+      <DependentUpon>201406131627207_endringtillag3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406131631401_latildatopaagme.resx">
+      <DependentUpon>201406131631401_latildatopaagme.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -3,16 +3,16 @@ namespace VMTippekonkurranse.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate1 : DbMigration
+    public partial class latildatopaagme : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Kamp", "ErSpilt", c => c.Boolean(nullable: false));
+            AddColumn("dbo.Game", "Date", c => c.DateTime());
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Kamp", "ErSpilt");
+            DropColumn("dbo.Game", "Date");
         }
     }
 }

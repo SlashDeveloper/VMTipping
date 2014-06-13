@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Sett datoer for kamper";
+}
+@using (Html.BeginForm()){
+    @Html.DropDownList("Matches")
+    <input type="text" class="span2 datepicker" value="13-06-2014" id="date" name="date">
+    <input type="submit" value="OK" />
+}
+@section scripts
+{
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script>
+        $(function() {
+            $('.datepicker').datepicker({
+                format: 'dd-mm-yyyy'
+            });
+        });
+    </script>
+}
+
