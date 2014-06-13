@@ -5,6 +5,10 @@
 @using (Html.BeginForm()){
     @Html.DropDownList("Matches")
     <input type="text" class="span2 datepicker" value="13-06-2014" id="date" name="date">
+    <input type="number" placeholder="Hjemme" id="home" name="home"/>
+    <input type="number" placeholder="Borte" id="away" name="away" />
+    <label>Er ferdigspilt:</label>
+    <input type="checkbox" id="done" name="done" />
     <input type="submit" value="OK" />
 }
 @section scripts
