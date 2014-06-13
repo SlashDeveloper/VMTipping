@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMTippingClient", "VMTippin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMTipping.Model", "..\VMTipping.Model\VMTipping.Model.csproj", "{711412EF-7268-4D30-9F64-D424BA8AB4C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMTippekonkurranse", "..\..\..\Visual Studio 2013\Projects\VMTippekonkurranse\VMTippekonkurranse\VMTippekonkurranse.csproj", "{091BEF9C-1CE0-4568-9BBB-D452E476B3C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMTippekonkurranse", "..\VMTippekonkurranse\VMTippekonkurranse\VMTippekonkurranse.csproj", "{091BEF9C-1CE0-4568-9BBB-D452E476B3C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

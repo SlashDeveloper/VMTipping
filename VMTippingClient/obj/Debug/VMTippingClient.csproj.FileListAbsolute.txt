@@ -41,3 +41,16 @@ C:\Users\Brian\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\Microsoft.Pr
 C:\Users\Brian\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Users\Brian\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Brian\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\R\Documents\GitHub\VMTipping\VMTippingClient\bin\Debug\System.Windows.Interactivity.xml

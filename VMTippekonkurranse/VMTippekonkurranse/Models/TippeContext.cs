@@ -15,17 +15,25 @@ namespace VMTippekonkurranse.Models
         {
         }
         public DbSet<Team> Teams { get; set; }
-        public DbSet<Match> Matches { get; set; }
+        public DbSet<Game> Matches { get; set; }
         public DbSet<MatchPrediction> MatchPredictions { get; set; }
         public DbSet<User> Users { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Entity<Match>()
+            modelBuilder.Entity<Game>()
                 .HasRequired(c => c.HomeTeam)
                 .WithRequiredDependent()
                 .WillCascadeOnDelete(false);
-            modelBuilder.Entity<Match>()
+            modelBuilder.Entity<Game>()
+                .HasRequired(c => c.AwayTeam)
+                .WithRequiredDependent()
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<MatchPrediction>()
+               .HasRequired(c => c.HomeTeam)
+               .WithRequiredDependent()
+               .WillCascadeOnDelete(false);
+            modelBuilder.Entity<MatchPrediction>()
                 .HasRequired(c => c.AwayTeam)
                 .WithRequiredDependent()
                 .WillCascadeOnDelete(false);

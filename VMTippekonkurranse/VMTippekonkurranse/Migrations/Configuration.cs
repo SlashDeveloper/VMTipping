@@ -9,8 +9,7 @@ namespace VMTippekonkurranse.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "VMTippekonkurranse.Models.TippeContext";
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(VMTippekonkurranse.Models.TippeContext context)
