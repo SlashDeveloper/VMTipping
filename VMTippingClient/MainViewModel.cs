@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.IO;
-using System.Windows.Documents;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Win32;
@@ -17,8 +15,7 @@ namespace VMTippingClient
         public ObservableCollection<User> Users { get; set; }
 
         public MainViewModel()
-        {
-            
+        {   
             ReadFilesCommand = new RelayCommand(() => Users = new ObservableCollection<User>(new FileReader().ReadPredictionFiles()));
             SaveCommand = new RelayCommand(SaveToFile);
         }

@@ -5,3 +5,9 @@ PredictionSheets/~$VM 2014 Tippekonkuranse - Erik.xlsx
 PredictionSheets/~$VM 2014 Tippekonkuranse - Liv.xlsx
 PredictionSheets/~$VM 2014 Tippekonkuranse - Nina.xlsx
 PredictionSheets/~$VM 2014 Tippekonkuranse_ARNE.xlsx
+PredictionSheets/~$VM 2014 Tippekonkuranse - Aasmund.xlsx
+*.Cache
+[Dd]ebug*/
+[Bb]in
+obj/
+[Rr]elease*/
