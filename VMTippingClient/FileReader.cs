@@ -10,7 +10,7 @@ namespace VMTippingClient
 {
     public class FileReader
     {
-        public void ReadPredictionFiles()
+        public IList<User> ReadPredictionFiles()
         {
             // Read all files in folder and parse to resultset
             var files = Directory.GetFiles(@"C:\Users\R\Documents\GitHub\VMTipping\PredictionSheets");
@@ -21,6 +21,8 @@ namespace VMTippingClient
                 var userPrection = new ExcelReader().GetResult(file);
                 users.Add(userPrection);
             }
+
+            return users;
         }
     }
 }
