@@ -15,3 +15,15 @@ select,
 textarea {
     max-width: 280px;
 }
+.own-department {
+    border: dotted;
+    border-width: 1px;
+    border-color: #ddd;
+    border-radius: 4px 4px 0 0;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
