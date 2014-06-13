@@ -23,6 +23,15 @@ namespace VMTippingClient
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
+        }
+    }
+
+    public class MainViewModel
+    {
+        public MainViewModel()
+        {
+            new FileReader().ReadPredictionFiles();
         }
     }
 }
