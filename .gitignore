@@ -13,3 +13,9 @@ VMTippekonkurranse/VMTippekonkurranse/bin/VMTippekonkurranse.pdb
 VMTippekonkurranse/VMTippekonkurranse/bin/VMTipping.Model.pdb
 VMTippekonkurranse/VMTippekonkurranse/App_Data/aspnet-VMTippekonkurranse-20140612053508.mdf
 VMTippekonkurranse/VMTippekonkurranse/App_Data/aspnet-VMTippekonkurranse-20140612053508_log.ldf
+PredictionSheets/~$VM 2014 Tippekonkuranse - Aasmund.xlsx
+*.Cache
+[Dd]ebug*/
+[Bb]in
+obj/
+[Rr]elease*/

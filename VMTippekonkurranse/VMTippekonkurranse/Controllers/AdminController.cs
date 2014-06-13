@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using VMTippekonkurranse.Models;
+using VMTipping.Model;
 
 namespace VMTippekonkurranse.Controllers
 {
@@ -32,12 +34,12 @@ namespace VMTippekonkurranse.Controllers
             // Verify that the user selected a file
             if (file != null && file.ContentLength > 0)
             {
-                // extract only the fielname
-                var fileName = Path.GetFileName(file.FileName);
+                BinaryReader b = new BinaryReader(file.InputStream);
+                byte[] binData = b.ReadBytes(Convert.ToInt32(file.InputStream.Length));
 
-                // then save on the server...
-                var path = Path.Combine(Server.MapPath("~/uploads"), fileName);
-                file.SaveAs(path);
+                string result = System.Text.Encoding.UTF8.GetString(binData);
+
+                var list = JsonConvert.DeserializeObject<List<User>>(result);
             }
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
