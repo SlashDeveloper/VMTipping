@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -22,21 +23,17 @@ namespace VMTippekonkurranse.Models
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Entity<Game>()
-                .HasRequired(c => c.HomeTeam)
-                .WithRequiredDependent()
-                .WillCascadeOnDelete(false);
+                    .HasRequired(m => m.HomeTeam)
+                    .WithMany(t => t.HomeMatches)
+                    .HasForeignKey(m => m.HomeTeamId)
+                    .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Game>()
-                .HasRequired(c => c.AwayTeam)
-                .WithRequiredDependent()
-                .WillCascadeOnDelete(false);
-            modelBuilder.Entity<MatchPrediction>()
-               .HasRequired(c => c.HomeTeam)
-               .WithRequiredDependent()
-               .WillCascadeOnDelete(false);
-            modelBuilder.Entity<MatchPrediction>()
-                .HasRequired(c => c.AwayTeam)
-                .WithRequiredDependent()
-                .WillCascadeOnDelete(false);
+                        .HasRequired(m => m.AwayTeam)
+                        .WithMany(t => t.AwayMatches)
+                        .HasForeignKey(m => m.AwayTeamId)
+                        .WillCascadeOnDelete(false);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

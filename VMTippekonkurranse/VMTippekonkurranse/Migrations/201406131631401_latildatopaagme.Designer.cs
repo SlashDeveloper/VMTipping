@@ -7,13 +7,13 @@ namespace VMTippekonkurranse.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class games : IMigrationMetadata
+    public sealed partial class latildatopaagme : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(games));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(latildatopaagme));
         
         string IMigrationMetadata.Id
         {
-            get { return "201406131355374_games"; }
+            get { return "201406131631401_latildatopaagme"; }
         }
         
         string IMigrationMetadata.Source

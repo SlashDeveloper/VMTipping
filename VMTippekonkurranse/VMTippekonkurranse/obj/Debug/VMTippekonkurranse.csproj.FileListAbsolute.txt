@@ -175,6 +175,6 @@ C:\Users\R\Documents\GitHub\VMTipping\VMTippekonkurranse\VMTippekonkurranse\bin\
 C:\Users\R\Documents\GitHub\VMTipping\VMTippekonkurranse\VMTippekonkurranse\obj\Debug\VMTippekonkurranse.csprojResolveAssemblyReference.cache
 C:\Users\R\Documents\GitHub\VMTipping\VMTippekonkurranse\VMTippekonkurranse\obj\Debug\VMTippekonkurranse.dll
 C:\Users\R\Documents\GitHub\VMTipping\VMTippekonkurranse\VMTippekonkurranse\obj\Debug\VMTippekonkurranse.pdb
+C:\Users\R\Documents\GitHub\VMTipping\VMTippekonkurranse\VMTippekonkurranse\obj\Debug\VMTippekonkurranse.Migrations.endringtillag3.resources
 C:\Users\R\Documents\GitHub\VMTipping\VMTippekonkurranse\VMTippekonkurranse\obj\Debug\VMTippekonkurranse.csproj.GenerateResource.Cache
-C:\Users\R\Documents\GitHub\VMTipping\VMTippekonkurranse\VMTippekonkurranse\obj\Debug\VMTippekonkurranse.Migrations.games.resources
-C:\Users\R\Documents\GitHub\VMTipping\VMTippekonkurranse\VMTippekonkurranse\obj\Debug\VMTippekonkurranse.Migrations.matchpredictionsandusers.resources
+C:\Users\R\Documents\GitHub\VMTipping\VMTippekonkurranse\VMTippekonkurranse\obj\Debug\VMTippekonkurranse.Migrations.latildatopaagme.resources

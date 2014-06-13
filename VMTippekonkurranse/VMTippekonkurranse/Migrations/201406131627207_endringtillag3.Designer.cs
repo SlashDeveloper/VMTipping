@@ -7,13 +7,13 @@ namespace VMTippekonkurranse.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class matchpredictionsandusers : IMigrationMetadata
+    public sealed partial class endringtillag3 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(matchpredictionsandusers));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(endringtillag3));
         
         string IMigrationMetadata.Id
         {
-            get { return "201406131357091_matchpredictionsandusers"; }
+            get { return "201406131627207_endringtillag3"; }
         }
         
         string IMigrationMetadata.Source

@@ -5,12 +5,17 @@ namespace VMTipping.Model
 {
     public class MatchPrediction
     {
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public Game Match { get; set; }
         public int MatchId { get; set; }
+        [NotMapped]
         public Team HomeTeam { get; set; }
+        [NotMapped]
         public int HomeTeamId { get; set; }
+        [NotMapped]
         public Team AwayTeam { get; set; }
+        [NotMapped]
         public int AwayTeamId { get; set; } 
         public int HomeGoals { get; set; }
         public int AwayGoals { get; set; }
