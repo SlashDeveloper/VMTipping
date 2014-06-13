@@ -1,4 +1,0 @@
-C:\Users\R\Documents\GitHub\VMTipping\VMTipping.Model\bin\Release\VMTipping.Model.dll
-C:\Users\R\Documents\GitHub\VMTipping\VMTipping.Model\bin\Release\VMTipping.Model.pdb
-C:\Users\R\Documents\GitHub\VMTipping\VMTipping.Model\obj\Release\VMTipping.Model.dll
-C:\Users\R\Documents\GitHub\VMTipping\VMTipping.Model\obj\Release\VMTipping.Model.pdb

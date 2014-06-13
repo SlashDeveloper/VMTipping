@@ -9,7 +9,7 @@ using VMTipping.Model;
 namespace VMTippingClient
 {
     public class MainViewModel
-    {
+    {      
         public ICommand ReadFilesCommand { get; set; }
         public ICommand SaveCommand{ get; set; }
         public ObservableCollection<User> Users { get; set; }
