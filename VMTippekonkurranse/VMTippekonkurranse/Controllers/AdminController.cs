@@ -139,12 +139,15 @@ namespace VMTippekonkurranse.Controllers
         }
 
         [HttpPost]
-        public ActionResult Dates(int matches, DateTime date, bool played, int? home, int? away)
+        public ActionResult Dates(int matches, DateTime? date, bool played, int? home, int? away)
         {
             using (var context = new TippeContext())
             {
                 var match = context.Matches.First(m => m.Id == matches);
-                match.Date = date;
+                if (date != null)
+                {
+                    match.Date = date;
+                }
                 if (home != null)
                 {
                     match.HomeGoals = home.Value;
