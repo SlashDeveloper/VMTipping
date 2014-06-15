@@ -13,7 +13,7 @@ namespace VMTippingClient
         public async Task<IList<string>> ReadPredictionFiles()
         {
             // Read all files in folder and parse to resultset
-            var files = Directory.GetFiles(@"C:\Users\Brian\Documents\GitHub\VMTipping\PredictionSheets");
+            var files = Directory.GetFiles(@"C:\Users\R\Documents\GitHub\VMTipping\PredictionSheets");
             var userFiles = new List<string>();
             var users = new List<User>();
             foreach (var file in files)

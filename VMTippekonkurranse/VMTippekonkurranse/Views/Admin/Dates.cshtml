@@ -2,14 +2,44 @@
 @{
     ViewBag.Title = "Oppdater kampresultater";
 }
-@using (Html.BeginForm()){
-    @Html.DropDownList("Matches")
-    <input type="text" class="span2 datepicker" placeholder="Dato" value="" id="date" name="date">
-    <input type="number" placeholder="Hjemme" id="home" name="home"/>
-    <input type="number" placeholder="Borte" id="away" name="away" />
-    <label>Er påbegynt:</label>
-    <input type="checkbox" id="played" value="true" name="played" />
-    <input type="submit" value="OK" />
+@using (Html.BeginForm())
+{
+
+    <div class="form-group">
+        <label for="Matches" class="col-sm-2 control-label">Velg kamp</label>
+        <div class="col-sm-10">
+            @Html.DropDownList("Matches",null,new{ @class = "form-control datedropdown"})
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="date" class="col-sm-2 control-label">Dato</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control datepicker" placeholder="Dato" value="" id="date" name="date">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="date" class="col-sm-2 control-label">Hjemmemål</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" placeholder="Hjemme" id="home" name="home" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="date" class="col-sm-2 control-label">Bortemål</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" placeholder="Borte" id="away" name="away" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="played" class="col-sm-2 control-label">Er påbegynt</label>
+        <div class="col-sm-10">
+            <input type="checkbox" id="played" value="true" name="played" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">OK</button>
+        </div>
+    </div>
 }
 @section scripts
 {

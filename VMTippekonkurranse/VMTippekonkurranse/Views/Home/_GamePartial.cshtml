@@ -1,0 +1,43 @@
+﻿@model VMTippekonkurranse.Models.GameViewModel
+
+<div class="row own-department">
+    <div class="row own-department">
+        <div class="col-md-2">
+            @Model.Game.HomeTeam.Name - @Model.Game.AwayTeam.Name
+        </div>
+        <div class="col-md-1">
+            @if (Model.Game.IsPlayed)
+            {
+                @:@Model.Game.HomeGoals - @Model.Game.AwayGoals
+            }
+            else
+            {
+                @:x - x
+            }
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#@Model.CollapsibleId">
+                Vis/skjul detaljer
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div id="@Model.CollapsibleId" class="col-md-8 collapse @Model.CollapseOpen">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th>Navn</th>
+                        <th>Hjemme</th>
+                        <th>Borte</th>
+                        <th>Tippetegn</th>
+                        <th>Kamppoeng</th>
+                        <th>Total sum</th>
+                    </tr>
+                    @foreach (var gameUserScore in Model.GameUserScores){
+                      @Html.Partial("_GameUserScorePartial", gameUserScore)
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -139,7 +139,7 @@ namespace VMTippekonkurranse.Controllers
         }
 
         [HttpPost]
-        public ActionResult Dates(int matches, DateTime? date, bool played, int? home, int? away)
+        public ActionResult Dates(int matches, DateTime? date, bool? played, int? home, int? away)
         {
             using (var context = new TippeContext())
             {
@@ -156,8 +156,15 @@ namespace VMTippekonkurranse.Controllers
                 {
                     match.AwayGoals = away.Value;
                 }
-                match.IsPlayed = played;
-                
+                if (played.HasValue)
+                {
+                    match.IsPlayed = played.Value;
+                }
+                else
+                {
+                    match.IsPlayed = false;
+                }
+
                 context.SaveChanges();
             }
             return RedirectToAction("Dates");
