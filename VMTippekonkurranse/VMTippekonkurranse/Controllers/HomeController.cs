@@ -19,7 +19,7 @@ namespace VMTippekonkurranse.Controllers
                 var earlierGames = new List<GameViewModel>();
                 var todaysGames = new List<GameViewModel>();
                 var upcomingGames = new List<GameViewModel>();
-                  foreach (var game in context.Matches.Include("HomeTeam").Include("AwayTeam").ToList().Where(d => d.Date != null && d.Date.Value.Date < DateTime.Now.Date))
+                  foreach (var game in context.Matches.Include("HomeTeam").Include("AwayTeam").ToList().Where(d => d.Date != null && d.Date.Value.Date < DateTime.Now.Date).OrderByDescending(g=>g.Date))
                 {
                     earlierGames.Add(new GameViewModel
                     {
@@ -27,7 +27,7 @@ namespace VMTippekonkurranse.Controllers
                         GameUserScores = scoreResultService.GetGameUserScoresForGame(game)
                     });
                 }
-                  foreach (var game in context.Matches.Include("HomeTeam").Include("AwayTeam").ToList().Where(d => d.Date != null && d.Date.Value.Date == DateTime.Now.Date))
+                  foreach (var game in context.Matches.Include("HomeTeam").Include("AwayTeam").ToList().Where(d => d.Date != null && d.Date.Value.Date == DateTime.Now.Date).OrderBy(g=>g.Date))
                 {
                     todaysGames.Add(new GameViewModel
                     {
@@ -35,7 +35,7 @@ namespace VMTippekonkurranse.Controllers
                         GameUserScores = scoreResultService.GetGameUserScoresForGame(game)
                     });
                 }
-                  foreach (var game in context.Matches.Include("HomeTeam").Include("AwayTeam").ToList().Where(d => d.Date != null && d.Date.Value.Date > DateTime.Now.Date))
+                  foreach (var game in context.Matches.Include("HomeTeam").Include("AwayTeam").ToList().Where(d => d.Date != null && d.Date.Value.Date > DateTime.Now.Date).OrderBy(g=>g.Date))
                 {
                     upcomingGames.Add(new GameViewModel
                     {

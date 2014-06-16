@@ -30,17 +30,17 @@ namespace VMTipping.Model
                     Game = game,
                     User = user,
                     MatchPrediction = _matchPredictions.First(mp=> mp.UserId == user.Id && mp.MatchId == game.Id),
-                    TotalScore = GetTotalScoreForUser(user)
+                    TotalScore = GetTotalScoreForUserUntilGame(user, game)
                 });
             }
             return gus.OrderByDescending(g=>g.TotalScore).ToList();
         }
 
-        public int GetTotalScoreForUser(User user)
+        public int GetTotalScoreForUserUntilGame(User user, Game untilGame)
         {
             var totalscore = 0;
             //foreløpig for gruppespill
-            foreach (var game in _games.Where(g=>g.IsPlayed))
+            foreach (var game in _games.Where(g=>g.IsPlayed && g.Date <= untilGame.Date))
             {
                 var gus = new GameUserScore
                 {

@@ -27,6 +27,28 @@ namespace VMTippekonkurranse.Models
                 return "";
             }
         }
+
+        public string DateOrTimeString
+        {
+            get
+            {
+                if (!Game.Date.HasValue)
+                {
+                    return "";
+                }
+                DateTime timeUtc = DateTime.UtcNow;
+                TimeZoneInfo cetZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+                DateTime cetTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, cetZone);
+                if (Game.Date.Value.Date == cetTime.Date)
+                {
+                    return Game.Date.Value.ToShortTimeString();
+                }
+                else
+                {
+                    return Game.Date.Value.ToShortDateString();
+                }
+            }
+        }
     }
 
 }
