@@ -45,7 +45,7 @@ namespace VMTippekonkurranse.Models
                 }
                 else
                 {
-                    return Game.Date.Value.ToShortDateString();
+                    return Game.Date.Value.Day + "." + Game.Date.Value.Month + " " + Game.Date.Value.ToShortTimeString();
                 }
             }
         }
