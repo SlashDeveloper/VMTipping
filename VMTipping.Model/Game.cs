@@ -33,9 +33,7 @@ namespace VMTippekonkurranse.Models
                 {
                     return false;
                 }
-                DateTime timeUtc = DateTime.UtcNow;
-                TimeZoneInfo cetZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
-                DateTime cetTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, cetZone);
+                var cetTime = CETDateHelper.GetCurrentCETDateTime();
                 if (Date.Value <= cetTime)
                 {
                     return true;

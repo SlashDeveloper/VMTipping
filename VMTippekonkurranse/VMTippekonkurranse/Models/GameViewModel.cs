@@ -36,9 +36,7 @@ namespace VMTippekonkurranse.Models
                 {
                     return "";
                 }
-                DateTime timeUtc = DateTime.UtcNow;
-                TimeZoneInfo cetZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
-                DateTime cetTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, cetZone);
+                var cetTime = CETDateHelper.GetCurrentCETDateTime();
                 if (Game.Date.Value.Date == cetTime.Date)
                 {
                     return Game.Date.Value.ToShortTimeString();

@@ -20,5 +20,7 @@ namespace VMTipping.Model
         public string Name { get; set; }
         public virtual ICollection<Game> HomeMatches { get; set; }
         public virtual ICollection<Game> AwayMatches { get; set; }
+        public virtual ICollection<RoundTeam> InRounds { get; set; }
+        public virtual ICollection<RoundPredictionTeam> InRoundPredictions { get; set; }
     }
 }

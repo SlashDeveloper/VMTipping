@@ -40,8 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CETDateHelper.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameUserScore.cs" />
+    <Compile Include="Round.cs" />
+    <Compile Include="RoundPrediction.cs" />
+    <Compile Include="RoundTeam.cs" />
+    <Compile Include="RoundUserScore.cs" />
     <Compile Include="ScoreResultservice.cs" />
     <Compile Include="User.cs" />
     <Compile Include="MatchPrediction.cs" />
