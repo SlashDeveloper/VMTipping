@@ -11,9 +11,11 @@ namespace VMTipping.Model
     {
         private IList<User> _users;
         private IList<MatchPrediction> _matchPredictions;
-        private IList<Game> _games; 
+        private IList<Game> _games;
+        private IList<Round> _rounds;
+        private IList<RoundPrediction> _roundPredictions; 
 
-        public ScoreResultservice(IList<User> users, IList<MatchPrediction> matchPredictions, IList<Game> games )
+        public ScoreResultservice(IList<User> users, IList<MatchPrediction> matchPredictions, IList<Game> games, IList<Round> rounds, IList<RoundPrediction> roundPredictions )
         {
             _users = users;
             _matchPredictions = matchPredictions;
@@ -36,6 +38,10 @@ namespace VMTipping.Model
             return gus.OrderByDescending(g=>g.TotalScore).ToList();
         }
 
+        public IList<RoundUserScore> GetRoundUserScoresForRound(Round round)
+        {
+            
+        } 
         public int GetTotalScoreForUserUntilGame(User user, Game untilGame)
         {
             var totalscore = 0;
