@@ -39,11 +39,26 @@ namespace VMTipping.Model
             }
             return gus.OrderByDescending(g=>g.TotalScore).ToList();
         }
+        
+        public int GetTotalScoreForUserUntilGame(User user, Game untilGame)
+        {
+            var totalscore = 0;
+            //foreløpig for gruppespill
+            foreach (var game in _games.Where(g=>g.IsPlayed && g.Date <= untilGame.Date))
+            {
+                var gus = new GameUserScore
+                {
+                    Game = game,
+                    User = user,
+                    MatchPrediction = _matchPredictions.First(mp => mp.UserId == user.Id && mp.MatchId == game.Id)
+                };
+                totalscore += gus.ScoreThisGame;
+            }
+            return totalscore;
+        }
 
         public IList<RoundUserScore> GetRoundUserScoresForRound(Round round)
         {
-
-            var totalscore = 0;
             var rus = new List<RoundUserScore>();
             foreach (var user in _users)
             {
@@ -80,22 +95,6 @@ namespace VMTipping.Model
                     RoundPrediction = _roundPredictions.First(rp => rp.UserId == user.Id && rp.RoundId == round.Id),
                 };
                 totalscore += rus.ScoreThisRound;
-            }
-        }
-    
-        public int GetTotalScoreForUserUntilGame(User user, Game untilGame)
-        {
-            var totalscore = 0;
-            //foreløpig for gruppespill
-            foreach (var game in _games.Where(g=>g.IsPlayed && g.Date <= untilGame.Date))
-            {
-                var gus = new GameUserScore
-                {
-                    Game = game,
-                    User = user,
-                    MatchPrediction = _matchPredictions.First(mp => mp.UserId == user.Id && mp.MatchId == game.Id)
-                };
-                totalscore += gus.ScoreThisGame;
             }
             return totalscore;
         }
