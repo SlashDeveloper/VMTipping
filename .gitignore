@@ -1,4 +1,4 @@
-VMTippingClient/FileReader.cs
+﻿VMTippingClient/FileReader.cs
 PredictionSheets/~$VM 2014 Tippekonkuranse  - Aasmund.xlsx
 PredictionSheets/~$VM 2014 Tippekonkuranse - Brian.xlsx
 PredictionSheets/~$VM 2014 Tippekonkuranse - Erik.xlsx
@@ -38,4 +38,3 @@ VMTippingClient/bin/Debug/VMTippingClient.pdb
 VMTippingClient/VMTippingClient.v12.suo
 PredictionSheets/~$VM 2014 Tippekonkuranse_AndreasF.xlsx
 *.cache
-*.cs

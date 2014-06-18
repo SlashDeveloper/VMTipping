@@ -86,7 +86,6 @@ namespace VMTippekonkurranse.Controllers
                                 context.Matches.Add(new Game
                                 {
                                     Id = matchPrediction.MatchId,
-                                    IsPlayed = false,
                                     HomeTeamId = hometeam.Id,
                                     AwayTeamId = awayteam.Id
                                 });
@@ -139,7 +138,7 @@ namespace VMTippekonkurranse.Controllers
         }
 
         [HttpPost]
-        public ActionResult Dates(int matches, DateTime? date, bool played, int? home, int? away)
+        public ActionResult Dates(int matches, DateTime? date, int? home, int? away)
         {
             using (var context = new TippeContext())
             {
@@ -156,8 +155,7 @@ namespace VMTippekonkurranse.Controllers
                 {
                     match.AwayGoals = away.Value;
                 }
-                match.IsPlayed = played;
-                
+
                 context.SaveChanges();
             }
             return RedirectToAction("Dates");

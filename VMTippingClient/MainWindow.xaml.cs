@@ -21,9 +21,9 @@ namespace VMTippingClient
             var selectedItem = ((DataGrid) sender).SelectedItem;
             if (selectedItem != null)
             {
-                var window = new UserPredictionWindow();
-                window.DataContext = new UserPredictionViewModel(selectedItem as User);
-                window.Show();
+                //var window = new UserPredictionWindow();
+                //window.DataContext = new UserPredictionViewModel(selectedItem as User);
+                //window.Show();
             }
             
         }

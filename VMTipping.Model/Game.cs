@@ -24,7 +24,25 @@ namespace VMTippekonkurranse.Models
         public int HomeGoals { get; set; }
         public int AwayGoals { get; set; }
         public DateTime? Date { get; set; }
-        public bool IsPlayed { get; set; }
+
+        [NotMapped]
+        public bool IsPlayed {
+            get
+            {
+                if (!Date.HasValue)
+                {
+                    return false;
+                }
+                DateTime timeUtc = DateTime.UtcNow;
+                TimeZoneInfo cetZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+                DateTime cetTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, cetZone);
+                if (Date.Value <= cetTime)
+                {
+                    return true;
+                }
+                return false;
+            } 
+        }
         [NotMapped]
         public string Result
         {

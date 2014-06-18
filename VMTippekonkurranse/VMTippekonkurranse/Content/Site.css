@@ -27,3 +27,6 @@ textarea {
     margin-left: 0;
     margin-right: 0;
 }
+.form-control {
+    margin-bottom: 5px;
+}
