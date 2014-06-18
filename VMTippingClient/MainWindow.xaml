@@ -67,7 +67,22 @@
         </TabItem>
         <TabItem Header="Resultater">
             <ItemsControl ItemsSource="{Binding Matches}">
-
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="500">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding HomeTeam.Name}"></TextBlock>
+                            <TextBlock Grid.Column="1" Text="{Binding AwayTeam.Name}"></TextBlock>
+                            <TextBlock Grid.Column="2" Text="{Binding HomeGoals}"></TextBlock>
+                            <TextBlock Grid.Column="3" Text="{Binding AwayGoals}"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
             </ItemsControl>
         </TabItem>
     </TabControl>

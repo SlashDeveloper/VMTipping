@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -21,10 +22,12 @@ namespace VMTippingClient
         public ICommand ReadUserJsonCommand { get; set; } 
         public ObservableCollection<User> Users { get; set; }
         public ObservableCollection<Score> Ranking { get; set; }
+        public ObservableCollection<Match> Matches { get; set; }
 
         public MainViewModel()
         {
             Users = new ObservableCollection<User>();
+            Ranking = new ObservableCollection<Score>();
             Ranking = new ObservableCollection<Score>();
             ReadFilesCommand = new RelayCommand(ReadFiles);
             SaveCommand = new RelayCommand(SaveToFile);
