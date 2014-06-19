@@ -10,7 +10,7 @@ namespace VMTipping.Model
         public string ImageURL { get; set; }
 
         public virtual IList<MatchPrediction> MatchPredictions { get; set; }
-
+        [NotMapped]
         public virtual IList<RoundPrediction> RoundPredictions { get; set; }
         [NotMapped]
         public IList<Team> RoundOf16 { get; set; }
