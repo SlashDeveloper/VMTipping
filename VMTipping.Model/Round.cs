@@ -12,6 +12,7 @@ namespace VMTipping.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string JsonName { get; set; }
         public virtual IList<RoundTeam> TeamsInRound { get; set; }
         public DateTime? StartActive { get; set; }
         public DateTime? EndActive { get; set; }

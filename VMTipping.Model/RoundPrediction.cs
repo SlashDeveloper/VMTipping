@@ -15,12 +15,4 @@ namespace VMTipping.Model
         public int RoundId { get; set; }
         public virtual IList<RoundPredictionTeam> Teams { get; set; }
     }
-
-    public class RoundPredictionTeam
-    {
-        public int Id { get; set; }
-        public RoundPrediction RoundPrediction { get; set; }
-        public Team Team { get; set; }
-        public int Rank { get; set; }
-    }
 }

@@ -15,7 +15,7 @@ namespace VMTippekonkurranse.Controllers
             using (var context = new TippeContext())
             {
                 var scoreResultService = new ScoreResultservice(context.Users.ToList(),
-                    context.MatchPredictions.ToList(), context.Matches.ToList(), new List<Round>(), new List<RoundPrediction>() );
+                    context.MatchPredictions.ToList(), context.Matches.ToList(),context.Rounds.Include("TeamsInRound").ToList(), context.RoundPredictions.Include("Teams").ToList());
                 var earlierGames = new List<GameViewModel>();
                 var todaysGames = new List<GameViewModel>();
                 var upcomingGames = new List<GameViewModel>();

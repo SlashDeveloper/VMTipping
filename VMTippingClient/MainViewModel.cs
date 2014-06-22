@@ -21,14 +21,14 @@ namespace VMTippingClient
         public ICommand SaveCommand{ get; set; }
         public ICommand ReadUserJsonCommand { get; set; } 
         public ObservableCollection<User> Users { get; set; }
-        public ObservableCollection<Score> Ranking { get; set; }
+        //public ObservableCollection<Score> Ranking { get; set; }
         public ObservableCollection<Match> Matches { get; set; }
 
         public MainViewModel()
         {
             Users = new ObservableCollection<User>();
-            Ranking = new ObservableCollection<Score>();
-            Ranking = new ObservableCollection<Score>();
+            //Ranking = new ObservableCollection<Score>();
+            //Ranking = new ObservableCollection<Score>();
             ReadFilesCommand = new RelayCommand(ReadFiles);
             SaveCommand = new RelayCommand(SaveToFile);
             ReadUserJsonCommand = new RelayCommand(GetUsersFromJson);
@@ -66,13 +66,13 @@ namespace VMTippingClient
 
         private void UpdateRanking()
         {
-            Ranking.Clear();
-            var games = new ResultService().GetGamesThatArePlayed();
-            var ranking = new ScoreService().GetRanking(Users, games);
-            foreach (var score in ranking)
-            {
-                Ranking.Add(score);
-            }
+            //Ranking.Clear();
+            //var games = new ResultService().GetGamesThatArePlayed();
+            //var ranking = new ScoreService().GetRanking(Users, games);
+            //foreach (var score in ranking)
+            //{
+            //    Ranking.Add(score);
+            //}
         }
 
         private async void ReadFiles()

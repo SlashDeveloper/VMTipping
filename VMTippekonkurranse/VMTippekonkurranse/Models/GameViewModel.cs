@@ -20,7 +20,7 @@ namespace VMTippekonkurranse.Models
         {
             get
             {
-                if (Game.Date.HasValue && Game.Date.Value.Date == DateTime.Now.Date)
+                if (Game.Date.HasValue && Game.Date.Value.Date == CETDateHelper.GetCurrentCETDateTime().Date)
                 {
                     return "in";
                 }

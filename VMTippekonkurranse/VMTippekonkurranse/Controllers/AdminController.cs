@@ -45,6 +45,10 @@ namespace VMTippekonkurranse.Controllers
                     string result = System.Text.Encoding.UTF8.GetString(binData);
 
                     var list = JsonConvert.DeserializeObject<List<User>>(result);
+                    if (!context.Rounds.Any())
+                    {
+                        CreateRounds(context);
+                    }
                     foreach (var user in list)
                     {
                         //Add the user with the correct user name
@@ -114,11 +118,162 @@ namespace VMTippekonkurranse.Controllers
                                 context.SaveChanges();
                             }
                         }
+                        //round of 16
+                        var roundId = context.Rounds.First(r => r.JsonName == "RoundOf16").Id;
+                        if (!context.RoundPredictions.Any(rp => rp.RoundId == roundId && rp.User.Name == user.Name))
+                        {
+                            //Add roundpredictions
+                            var userfromcontext = context.Users.First(u => u.Name == user.Name);
+                            var roundPrediction = new RoundPrediction
+                            {
+                                RoundId = roundId,
+                                UserId = userfromcontext.Id
+                            };
+                            context.RoundPredictions.Add(roundPrediction);
+                            context.SaveChanges();
+                            foreach (var team in user.RoundOf16)
+                            {
+                                var teamFromContext = context.Teams.ToList().First(t => t.Name.Substring(0, 3).ToLower() == team.Name.Substring(0, 3).ToLower());
+                                context.RoundPredictionTeams.Add(new RoundPredictionTeam
+                                {
+                                    Rank = 0,
+                                    RoundPredictionId = roundPrediction.Id,
+                                    TeamId = teamFromContext.Id
+                                });
+                            }
+                            context.SaveChanges();
+                        }
+                        //round of 8
+                        roundId = context.Rounds.First(r => r.JsonName == "RoundOf8").Id;
+                        if (!context.RoundPredictions.Any(rp => rp.RoundId == roundId && rp.User.Name == user.Name))
+                        {
+                            //Add roundpredictions
+                            var userfromcontext = context.Users.First(u => u.Name == user.Name);
+                            var roundPrediction = new RoundPrediction
+                            {
+                                RoundId = roundId,
+                                UserId = userfromcontext.Id
+                            };
+                            context.RoundPredictions.Add(roundPrediction);
+                            context.SaveChanges();
+                            foreach (var team in user.RoundOf8)
+                            {
+                                var teamFromContext = context.Teams.ToList().First(t => t.Name.Substring(0, 3).ToLower() == team.Name.Substring(0, 3).ToLower());
+                                context.RoundPredictionTeams.Add(new RoundPredictionTeam
+                                {
+                                    Rank = 0,
+                                    RoundPredictionId = roundPrediction.Id,
+                                    TeamId = teamFromContext.Id
+                                });
+                            }
+                            context.SaveChanges();
+                        }
+                        //round of 4
+                        roundId = context.Rounds.First(r => r.JsonName == "RoundOf4").Id;
+                        if (!context.RoundPredictions.Any(rp => rp.RoundId == roundId && rp.User.Name == user.Name))
+                        {
+                            //Add roundpredictions
+                            var userfromcontext = context.Users.First(u => u.Name == user.Name);
+                            var roundPrediction = new RoundPrediction
+                            {
+                                RoundId = roundId,
+                                UserId = userfromcontext.Id
+                            };
+                            context.RoundPredictions.Add(roundPrediction);
+                            context.SaveChanges();
+                            foreach (var team in user.RoundOf4)
+                            {
+                                var teamFromContext = context.Teams.ToList().First(t => t.Name.Substring(0, 3).ToLower() == team.Name.Substring(0, 3).ToLower());
+                                context.RoundPredictionTeams.Add(new RoundPredictionTeam
+                                {
+                                    Rank = 0,
+                                    RoundPredictionId = roundPrediction.Id,
+                                    TeamId = teamFromContext.Id
+                                });
+                            }
+                            context.SaveChanges();
+                        }
+                        //ranking
+                        roundId = context.Rounds.First(r => r.JsonName == "Ranking").Id;
+                        if (!context.RoundPredictions.Any(rp => rp.RoundId == roundId && rp.User.Name == user.Name))
+                        {
+                            //Add roundpredictions
+                            var userfromcontext = context.Users.First(u => u.Name == user.Name);
+                            var roundPrediction = new RoundPrediction
+                            {
+                                RoundId = roundId,
+                                UserId = userfromcontext.Id
+                            };
+                            context.RoundPredictions.Add(roundPrediction);
+                            context.SaveChanges();
+                            var i = 1;
+                            foreach (var team in user.Ranking)
+                            {
+                                var teamFromContext = context.Teams.ToList().First(t => t.Name.Substring(0, 3).ToLower() == team.Name.Substring(0, 3).ToLower());
+                                context.RoundPredictionTeams.Add(new RoundPredictionTeam
+                                {
+                                    Rank = i,
+                                    RoundPredictionId = roundPrediction.Id,
+                                    TeamId = teamFromContext.Id
+                                });
+                                i++;
+                            }
+                            context.SaveChanges();
+                        }
                     }
                 }
             }
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
+        }
+
+        private void CreateRounds(TippeContext context)
+        {
+            //Round of 16
+            var roundof16 = new Round
+            {
+                IsRanked = false,
+                JsonName = "RoundOf16",
+                Name = "Åttendedelsfinaler",
+                PointPerCorrectTeam = 2,
+                StartActive = new DateTime(2014, 6, 22),
+                EndActive = new DateTime(2014, 6, 28)
+            };
+            context.Rounds.Add(roundof16);
+            //Round of 8
+            var roundof8 = new Round
+            {
+                IsRanked = false,
+                JsonName = "RoundOf8",
+                Name = "Kvartfinaler",
+                PointPerCorrectTeam = 3,
+                StartActive = new DateTime(2014, 6, 27),
+                EndActive = new DateTime(2014,7,4)
+            };
+            context.Rounds.Add(roundof8);
+            //Round of 4
+            var roundof4 = new Round
+            {
+                IsRanked = false,
+                JsonName = "RoundOf4",
+                Name = "Semifinaler",
+                PointPerCorrectTeam = 4,
+                StartActive = new DateTime(2014,7,2),
+                EndActive = new DateTime(2014, 7, 4)
+            };
+            context.Rounds.Add(roundof4);
+            //Ranking
+            var ranking = new Round
+            {
+                IsRanked = true,
+                JsonName = "Ranking",
+                Name = "Rangering",
+                PointPerCorrectTeam = 5,
+                StartActive = new DateTime(2014, 7, 6),
+                EndActive = new DateTime(2014, 7, 18)
+            };
+            context.Rounds.Add(ranking);
+            context.SaveChanges();
         }
 
         //Get: Admin/Dates

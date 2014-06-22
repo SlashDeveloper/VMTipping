@@ -178,6 +178,18 @@
     <Compile Include="Migrations\201406161929073_fjernaisplayed.Designer.cs">
       <DependentUpon>201406161929073_fjernaisplayed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406222025257_endgame.cs" />
+    <Compile Include="Migrations\201406222025257_endgame.Designer.cs">
+      <DependentUpon>201406222025257_endgame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406222033430_jsonname.cs" />
+    <Compile Include="Migrations\201406222033430_jsonname.Designer.cs">
+      <DependentUpon>201406222033430_jsonname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406222112187_latilid.cs" />
+    <Compile Include="Migrations\201406222112187_latilid.Designer.cs">
+      <DependentUpon>201406222112187_latilid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\GameViewModel.cs" />
@@ -284,6 +296,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406161929073_fjernaisplayed.resx">
       <DependentUpon>201406161929073_fjernaisplayed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406222025257_endgame.resx">
+      <DependentUpon>201406222025257_endgame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406222033430_jsonname.resx">
+      <DependentUpon>201406222033430_jsonname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406222112187_latilid.resx">
+      <DependentUpon>201406222112187_latilid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

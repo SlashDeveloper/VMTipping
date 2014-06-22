@@ -54,6 +54,19 @@ namespace VMTipping.Model
                 };
                 totalscore += gus.ScoreThisGame;
             }
+            //sluttspill
+            foreach (var round in _rounds.Where(r=>r.StartActive <= untilGame.Date))
+            {
+                var rp = _roundPredictions.First(rpr => rpr.RoundId == round.Id && rpr.UserId == user.Id);
+                var rus = new RoundUserScore
+                {
+                    Round = round,
+                    RoundPrediction = rp,
+                    User = user
+                };
+                if (untilGame.Date != null)
+                    totalscore += rus.ScoreThisRoundBeforeDateTime(untilGame.Date.Value.AddHours(2));
+            }
             return totalscore;
         }
 
