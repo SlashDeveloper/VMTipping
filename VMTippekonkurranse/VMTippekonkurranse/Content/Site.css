@@ -30,3 +30,23 @@ textarea {
 .form-control {
     margin-bottom: 5px;
 }
+
+.scoreZero {
+    color: red;
+}
+.scoreOne {
+    color: black;
+}
+.scoreTwo {
+    color: #116611;
+    font-size: 110%
+}
+.scoreThree {
+    color: #2D882D;
+    font-size: 120%
+}
+.scoreFour {
+    color: #55AA55;
+    font-weight: bold;
+    font-size: 140%
+}

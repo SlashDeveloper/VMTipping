@@ -29,7 +29,7 @@ namespace VMTippekonkurranse.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = await db.Users.FindAsync(id);
+            User user = await db.Users.Include(u => u.MatchPredictions).FirstAsync(u => u.Id == id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -44,7 +44,7 @@ namespace VMTippekonkurranse.Controllers
         }
 
         // POST: /User/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 0
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
