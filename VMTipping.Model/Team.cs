@@ -19,6 +19,7 @@ namespace VMTipping.Model
         public int Id { get; set; }
         public string ImageURL { get; set; }
         public string Name { get; set; }
+        public bool IsKnockedOut { get; set; }
         public virtual ICollection<Game> HomeMatches { get; set; }
         public virtual ICollection<Game> AwayMatches { get; set; }
 

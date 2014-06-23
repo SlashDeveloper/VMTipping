@@ -7,6 +7,7 @@ namespace VMTippekonkurranse.Models
 {
     public class IndexViewModel
     {
+        public IList<RoundViewModel> EndGame;
         public IList<GameViewModel> TodaysGames;
         public IList<GameViewModel> EarlierGames;
         public IList<GameViewModel> UpcomingGames;

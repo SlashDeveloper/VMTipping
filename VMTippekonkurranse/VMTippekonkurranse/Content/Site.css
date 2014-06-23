@@ -50,3 +50,12 @@ textarea {
     font-weight: bold;
     font-size: 140%
 }
+.teamKnockedOut {
+    color: red;
+}
+.teamAdvanced {
+    color: #55AA55;
+}
+.teamUndecided {
+    color: black;
+}

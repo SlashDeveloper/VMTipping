@@ -19,6 +19,7 @@ namespace VMTippekonkurranse.Controllers
                 var earlierGames = new List<GameViewModel>();
                 var todaysGames = new List<GameViewModel>();
                 var upcomingGames = new List<GameViewModel>();
+                var endgame = new List<RoundViewModel>();
                 var cetDateTimeNow = CETDateHelper.GetCurrentCETDateTime();
                 foreach (var game in context.Matches.Include("HomeTeam").Include("AwayTeam").ToList().Where(d => d.Date != null && d.Date.Value.Date < cetDateTimeNow.Date).OrderByDescending(g => g.Date))
                 {
@@ -44,11 +45,34 @@ namespace VMTippekonkurranse.Controllers
                         GameUserScores = scoreResultService.GetGameUserScoresForGame(game)
                     });
                 }
+                foreach (var round in context.Rounds.Include("TeamsInRound").Include("TeamsInRound.Team").ToList())
+                {
+                    List<RoundTeam> teamsinround;
+                    if (round.IsRanked)
+                    {
+                        teamsinround = round.TeamsInRound.OrderBy(r => r.Rank).ToList();
+                    }
+                    else
+                    {
+                        teamsinround = round.TeamsInRound.OrderBy(r=>r.Team.Name).ToList();
+                    }
+                    var user = context.Users.First();
+                    var roundPrediction =
+                        context.RoundPredictions.First(rp => rp.UserId == user.Id && rp.RoundId == round.Id);
+                    endgame.Add(new RoundViewModel
+                    {
+                        Round = round,
+                        RoundUserScores = scoreResultService.GetRoundUserScoresForRound(round),
+                        RoundTeams = teamsinround,
+                        NumTeams = roundPrediction != null ? context.RoundPredictionTeams.Count(rpt=>rpt.RoundPredictionId == roundPrediction.Id) : teamsinround.Count()
+                    });
+                }
                 var ivm = new IndexViewModel
                 {
                     EarlierGames = earlierGames,
                     TodaysGames = todaysGames,
-                    UpcomingGames = upcomingGames
+                    UpcomingGames = upcomingGames,
+                    EndGame = endgame
                 };
                 return View(ivm);
             }

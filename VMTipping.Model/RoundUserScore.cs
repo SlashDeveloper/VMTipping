@@ -74,7 +74,36 @@ namespace VMTipping.Model
                 }
                 return score;
         }
+        //-1: knocked out 0:undecided 1:qualified
+        public int TeamCorrect(Team team)
+        {
+            if (Round.TeamsInRound.Any(rt=>rt.TeamId == team.Id))
+            {
+                return 1;
+            }
+            else
+            {
+                if (team.IsKnockedOut)
+                {
+                    return -1;
+                }
+            }
+            return 0;
+        }
 
+        public string TeamCorrectClass(Team team)
+        {
+            var tc = TeamCorrect(team);
+            if ( tc > 0)
+            {
+                return "teamAdvanced";
+            }
+            if (tc < 0)
+            {
+                return "teamKnockedOut";
+            }
+            return "teamUndecided";
+        }
         public int TotalScore { get; set; }
     }
 }

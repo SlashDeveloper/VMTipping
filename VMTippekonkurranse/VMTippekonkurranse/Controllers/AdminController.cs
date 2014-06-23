@@ -316,5 +316,69 @@ namespace VMTippekonkurranse.Controllers
             return RedirectToAction("Dates");
         }
 
+        //Get: Admin/Advance
+        public ActionResult Advance()
+        {
+            using (var context = new TippeContext())
+            {
+                List<SelectListItem> items = new List<SelectListItem>();
+                context.Teams.ToList().ForEach(t => items.Add(new SelectListItem
+                {
+                    Text = t.Name,
+                    Value = t.Id.ToString()
+                }));
+                ViewBag.Teams = items;
+                items = new List<SelectListItem>();
+                items.Add(new SelectListItem()
+                {
+                    Text = "Utslått",
+                    Value = "0"
+                });
+                context.Rounds.ToList().ForEach(r => items.Add(new SelectListItem
+                {
+                    Text = r.Name,
+                    Value = r.Id.ToString()
+                }));
+                ViewBag.Rounds = items;
+                return View();
+            }
+        }
+        [HttpPost]
+        public ActionResult Advance(int rounds, int teams, DateTime? date, int? ranking)
+        {
+            using (var context = new TippeContext())
+            {
+                var team = context.Teams.First(t => t.Id == teams);
+                if (rounds == 0)
+                {
+                    team.IsKnockedOut = true;
+                }
+                else
+                {
+                    var roundteam = context.RoundTeams.FirstOrDefault(rt => rt.RoundId == rounds && rt.TeamId == teams);
+                    if (roundteam == null)
+                    {
+                        roundteam = new RoundTeam
+                        {
+                            RoundId = rounds,
+                            TeamId = teams
+                        };
+                        context.RoundTeams.Add(roundteam);
+                        
+                    }
+                       
+                    if (date.HasValue)
+                    {
+                        roundteam.DateTimeQualified = date.Value;
+                    }
+                    if (ranking.HasValue)
+                    {
+                        roundteam.Rank = ranking.Value;
+                    }
+                    }
+                context.SaveChanges();
+            }
+            return RedirectToAction("Advance");
+        }
     }
 }

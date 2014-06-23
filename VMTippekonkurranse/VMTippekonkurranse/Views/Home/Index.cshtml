@@ -1,6 +1,13 @@
 ﻿@model VMTippekonkurranse.Models.IndexViewModel
 
 <div class="row own-department">
+    <h2>Sluttspill</h2>
+    @foreach (var round in Model.EndGame)
+    {
+        @Html.Partial("_RoundPartial", round)
+    }
+</div>
+<div class="row own-department">
     <h2>Dagens kamper</h2>
     @foreach (var game in Model.TodaysGames)
     {
@@ -21,3 +28,20 @@
         @Html.Partial("_GamePartial", game)
     }
 </div>
+@section scripts
+{
+    <script type="text/javascript">
+            function RevealLastTeams(roundId) {
+                $('#hidestartbutton' + roundId).addClass('hidden');
+                $('#hidelastbutton' + roundId).removeClass('hidden');
+                $('.roundTdLast' + roundId).removeClass('hidden');
+                $('.roundTdFirst' + roundId).addClass('hidden');
+            }
+            function RevealFirstTeams(roundId) {
+                $('#hidelastbutton' + roundId).addClass('hidden');
+                $('#hidestartbutton' + roundId).removeClass('hidden');
+                $('.roundTdFirst' + roundId).removeClass('hidden');
+                $('.roundTdLast' + roundId).addClass('hidden');
+            }
+    </script>
+}
