@@ -1,0 +1,32 @@
+﻿@using VMTipping.Model
+@model VMTipping.Model.RoundUserScore
+@{
+    var i = 1;
+    var hidden = "";
+    var tdClass = "roundTdFirst" + Model.Round.Id;
+    List<RoundPredictionTeam> roundteams;
+    if (Model.Round.IsRanked)
+    {
+        roundteams = Model.RoundPrediction.Teams.OrderBy(t => t.Rank).ToList();
+    }
+    else
+    {
+        roundteams = Model.RoundPrediction.Teams.OrderBy(t => t.Team.Name).ToList();
+    }
+}
+<tr>
+    <td><img src="@Model.User.ImageURL" style="width: 40px; height: 45px;" /></td>
+    <td>@Html.ActionLink(Model.User.Name, "Details", "User", new { Id = Model.User.Id }, null)</td>
+    <td>@Model.ScoreThisRound</td>
+    <td>@Model.TotalScore</td>
+    @foreach (var roundTeam in roundteams)
+    {
+        if (i > 8)
+        {
+            hidden = "hidden";
+            tdClass = "roundTdLast"+ Model.Round.Id;
+        }
+        @: <td class="@Model.TeamCorrectClass(roundTeam.Team) @hidden @tdClass">@roundTeam.Team.Name</td>
+        i++; 
+    }
+</tr>
