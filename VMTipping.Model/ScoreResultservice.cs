@@ -65,7 +65,7 @@ namespace VMTipping.Model
                     User = user
                 };
                 if (untilGame.Date != null)
-                    totalscore += rus.ScoreThisRoundBeforeDateTime(untilGame.Date.Value.AddHours(2));
+                    totalscore += rus.ScoreThisRoundBeforeDateTime(untilGame.Date.Value.AddHours(3));
             }
             return totalscore;
         }
