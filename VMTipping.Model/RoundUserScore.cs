@@ -77,6 +77,28 @@ namespace VMTipping.Model
         //-1: knocked out 0:undecided 1:qualified
         public int TeamCorrect(Team team)
         {
+            if (Round.IsRanked)
+            {
+                if (team.IsKnockedOut)
+                {
+                    return -1;
+                }
+                if (Round.TeamsInRound.All(t => t.TeamId != team.Id))
+                {
+                    //The team is not knocked out but has no placement => undecided
+                    return 0;
+                }
+                //The team has a placement match with userpredicition
+                var roundTeam = Round.TeamsInRound.First(t => t.TeamId == team.Id);
+                if (RoundPrediction.Teams.Any(
+                    rp => rp.Rank == roundTeam.Rank && rp.Team.Id == team.Id))
+                {
+                    return 1;//correct rank
+                }
+                {
+                    return -1; //wrong rank
+                }
+            }
             if (Round.TeamsInRound.Any(rt=>rt.TeamId == team.Id))
             {
                 return 1;

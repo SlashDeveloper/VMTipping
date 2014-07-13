@@ -1,4 +1,5 @@
-﻿@model VMTippekonkurranse.Models.RoundViewModel
+﻿@using System.Activities.Statements
+@model VMTippekonkurranse.Models.RoundViewModel
 @{
     var revealFirstMethodName = "RevealFirstTeams";
     var revealFirstMethodCall = revealFirstMethodName + "(" + Model.Round.Id + ");";
@@ -57,9 +58,24 @@
                             {
                                 tdClass = "roundTdLast" + Model.Round.Id + " hidden";
                             }
-                            <td class="@tdClass">
-                                @team.Team.Name
-                            </td>
+                            if (Model.Round.IsRanked)
+                            {
+                                while (j != team.Rank)
+                                {
+                                    <td>
+                                    </td>
+                                    j++;
+                                }
+                                <td class="@tdClass">
+                                    @team.Team.Name
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="@tdClass">
+                                    @team.Team.Name
+                                </td>
+                            }
                             j++;
                         }
                     </tr>
